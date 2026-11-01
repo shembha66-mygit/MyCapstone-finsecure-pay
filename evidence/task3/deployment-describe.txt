@@ -1,0 +1,43 @@
+Name:                   finsecure-pay
+Namespace:              default
+CreationTimestamp:      Sun, 01 Nov 2026 21:39:56 +0800
+Labels:                 app=finsecure-pay
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=finsecure-pay
+Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=finsecure-pay
+  Containers:
+   app:
+    Image:      shembha66/finsecure-pay:1.0.0
+    Port:       8080/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     500m
+      memory:  512Mi
+    Requests:
+      cpu:      100m
+      memory:   256Mi
+    Liveness:   http-get http://:8080/actuator/health/liveness delay=40s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:8080/actuator/health/readiness delay=20s timeout=1s period=10s #success=1 #failure=3
+    Environment Variables from:
+      finsecure-config  ConfigMap  Optional: false
+    Environment:        <none>
+    Mounts:             <none>
+  Volumes:              <none>
+  Node-Selectors:       <none>
+  Tolerations:          <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Progressing    True    NewReplicaSetAvailable
+  Available      True    MinimumReplicasAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   finsecure-pay-85896cc6d8 (2/2 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  23m   deployment-controller  Scaled up replica set finsecure-pay-85896cc6d8 from 0 to 2

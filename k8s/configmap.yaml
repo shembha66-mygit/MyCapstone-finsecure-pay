@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: finsecure-config
+data:
+  MAX_TXN_AMOUNT: "10000"
+  ALLOWED_CURRENCIES: "SGD,USD,EUR"

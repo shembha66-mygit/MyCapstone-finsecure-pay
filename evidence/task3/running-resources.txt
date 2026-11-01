@@ -1,0 +1,14 @@
+NAME                            READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                          SELECTOR
+deployment.apps/finsecure-pay   2/2     2            2           23m   app          shembha66/finsecure-pay:1.0.0   app=finsecure-pay
+
+NAME                                 READY   STATUS    RESTARTS   AGE     IP               NODE                                                NOMINATED NODE   READINESS GATES
+pod/finsecure-pay-85896cc6d8-7tw4d   1/1     Running   0          8m39s   192.168.43.9     ip-192-168-60-223.ap-southeast-1.compute.internal   <none>           <none>
+pod/finsecure-pay-85896cc6d8-xflq7   1/1     Running   0          23m     192.168.67.124   ip-192-168-94-203.ap-southeast-1.compute.internal   <none>           <none>
+
+NAME                    TYPE           CLUSTER-IP       EXTERNAL-IP                                                                    PORT(S)        AGE    SELECTOR
+service/finsecure-pay   LoadBalancer   10.100.179.222   a8ebc6098e72c4d60b121a07dec6af74-2103664535.ap-southeast-1.elb.amazonaws.com   80:30517/TCP   23m    app=finsecure-pay
+service/kubernetes      ClusterIP      10.100.0.1       <none>                                                                         443/TCP        133m   <none>
+
+NAME                         DATA   AGE
+configmap/finsecure-config   2      23m
+configmap/kube-root-ca.crt   1      133m

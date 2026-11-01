@@ -1,0 +1,48 @@
+LAST SEEN   TYPE      REASON                    OBJECT                                                   MESSAGE
+37m         Normal    Starting                  node/ip-192-168-94-203.ap-southeast-1.compute.internal   
+37m         Normal    Starting                  node/ip-192-168-60-223.ap-southeast-1.compute.internal   
+37m         Normal    Starting                  node/ip-192-168-94-203.ap-southeast-1.compute.internal   Starting kubelet.
+37m         Normal    NodeAllocatableEnforced   node/ip-192-168-60-223.ap-southeast-1.compute.internal   Updated Node Allocatable limit across pods
+37m         Warning   InvalidDiskCapacity       node/ip-192-168-60-223.ap-southeast-1.compute.internal   invalid capacity 0 on image filesystem
+37m         Normal    NodeAllocatableEnforced   node/ip-192-168-94-203.ap-southeast-1.compute.internal   Updated Node Allocatable limit across pods
+37m         Normal    NodeHasSufficientPID      node/ip-192-168-94-203.ap-southeast-1.compute.internal   Node ip-192-168-94-203.ap-southeast-1.compute.internal status is now: NodeHasSufficientPID
+37m         Normal    NodeHasNoDiskPressure     node/ip-192-168-94-203.ap-southeast-1.compute.internal   Node ip-192-168-94-203.ap-southeast-1.compute.internal status is now: NodeHasNoDiskPressure
+37m         Normal    NodeHasSufficientMemory   node/ip-192-168-94-203.ap-southeast-1.compute.internal   Node ip-192-168-94-203.ap-southeast-1.compute.internal status is now: NodeHasSufficientMemory
+37m         Warning   InvalidDiskCapacity       node/ip-192-168-94-203.ap-southeast-1.compute.internal   invalid capacity 0 on image filesystem
+37m         Normal    Starting                  node/ip-192-168-60-223.ap-southeast-1.compute.internal   Starting kubelet.
+37m         Normal    NodeHasSufficientMemory   node/ip-192-168-60-223.ap-southeast-1.compute.internal   Node ip-192-168-60-223.ap-southeast-1.compute.internal status is now: NodeHasSufficientMemory
+37m         Normal    NodeHasNoDiskPressure     node/ip-192-168-60-223.ap-southeast-1.compute.internal   Node ip-192-168-60-223.ap-southeast-1.compute.internal status is now: NodeHasNoDiskPressure
+37m         Normal    NodeHasSufficientPID      node/ip-192-168-60-223.ap-southeast-1.compute.internal   Node ip-192-168-60-223.ap-southeast-1.compute.internal status is now: NodeHasSufficientPID
+37m         Normal    RegisteredNode            node/ip-192-168-60-223.ap-southeast-1.compute.internal   Node ip-192-168-60-223.ap-southeast-1.compute.internal event: Registered Node ip-192-168-60-223.ap-southeast-1.compute.internal in Controller
+37m         Normal    Synced                    node/ip-192-168-60-223.ap-southeast-1.compute.internal   Node synced successfully
+37m         Normal    Synced                    node/ip-192-168-94-203.ap-southeast-1.compute.internal   Node synced successfully
+37m         Normal    RegisteredNode            node/ip-192-168-94-203.ap-southeast-1.compute.internal   Node ip-192-168-94-203.ap-southeast-1.compute.internal event: Registered Node ip-192-168-94-203.ap-southeast-1.compute.internal in Controller
+37m         Normal    NodeReady                 node/ip-192-168-94-203.ap-southeast-1.compute.internal   Node ip-192-168-94-203.ap-southeast-1.compute.internal status is now: NodeReady
+37m         Normal    NodeReady                 node/ip-192-168-60-223.ap-southeast-1.compute.internal   Node ip-192-168-60-223.ap-southeast-1.compute.internal status is now: NodeReady
+23m         Normal    SuccessfulCreate          replicaset/finsecure-pay-85896cc6d8                      Created pod: finsecure-pay-85896cc6d8-xflq7
+23m         Normal    Scheduled                 pod/finsecure-pay-85896cc6d8-xflq7                       Successfully assigned default/finsecure-pay-85896cc6d8-xflq7 to ip-192-168-94-203.ap-southeast-1.compute.internal
+23m         Normal    Scheduled                 pod/finsecure-pay-85896cc6d8-5kgtq                       Successfully assigned default/finsecure-pay-85896cc6d8-5kgtq to ip-192-168-60-223.ap-southeast-1.compute.internal
+23m         Normal    SuccessfulCreate          replicaset/finsecure-pay-85896cc6d8                      Created pod: finsecure-pay-85896cc6d8-5kgtq
+23m         Normal    ScalingReplicaSet         deployment/finsecure-pay                                 Scaled up replica set finsecure-pay-85896cc6d8 from 0 to 2
+23m         Normal    EnsuringLoadBalancer      service/finsecure-pay                                    Ensuring load balancer
+23m         Normal    Pulling                   pod/finsecure-pay-85896cc6d8-5kgtq                       Pulling image "shembha66/finsecure-pay:1.0.0"
+23m         Normal    Pulling                   pod/finsecure-pay-85896cc6d8-xflq7                       Pulling image "shembha66/finsecure-pay:1.0.0"
+23m         Normal    EnsuredLoadBalancer       service/finsecure-pay                                    Ensured load balancer
+22m         Normal    Started                   pod/finsecure-pay-85896cc6d8-xflq7                       Container started
+22m         Normal    Created                   pod/finsecure-pay-85896cc6d8-xflq7                       Container created
+22m         Normal    Pulled                    pod/finsecure-pay-85896cc6d8-xflq7                       Successfully pulled image "shembha66/finsecure-pay:1.0.0" in 8.625s (8.625s including waiting). Image size: 91505514 bytes.
+22m         Normal    Pulled                    pod/finsecure-pay-85896cc6d8-5kgtq                       Successfully pulled image "shembha66/finsecure-pay:1.0.0" in 8.601s (8.601s including waiting). Image size: 91505514 bytes.
+22m         Normal    Created                   pod/finsecure-pay-85896cc6d8-5kgtq                       Container created
+22m         Normal    Started                   pod/finsecure-pay-85896cc6d8-5kgtq                       Container started
+22m         Warning   Unhealthy                 pod/finsecure-pay-85896cc6d8-xflq7                       Readiness probe failed: Get "http://192.168.67.124:8080/actuator/health/readiness": dial tcp 192.168.67.124:8080: connect: connection refused
+22m         Warning   Unhealthy                 pod/finsecure-pay-85896cc6d8-5kgtq                       Readiness probe failed: Get "http://192.168.61.79:8080/actuator/health/readiness": dial tcp 192.168.61.79:8080: connect: connection refused
+22m         Warning   Unhealthy                 pod/finsecure-pay-85896cc6d8-xflq7                       Readiness probe failed: Get "http://192.168.67.124:8080/actuator/health/readiness": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+22m         Warning   Unhealthy                 pod/finsecure-pay-85896cc6d8-5kgtq                       Readiness probe failed: Get "http://192.168.61.79:8080/actuator/health/readiness": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+8m41s       Normal    Killing                   pod/finsecure-pay-85896cc6d8-5kgtq                       Stopping container app
+8m40s       Normal    Pulled                    pod/finsecure-pay-85896cc6d8-7tw4d                       Container image "shembha66/finsecure-pay:1.0.0" already present on machine and can be accessed by the pod
+8m40s       Normal    Scheduled                 pod/finsecure-pay-85896cc6d8-7tw4d                       Successfully assigned default/finsecure-pay-85896cc6d8-7tw4d to ip-192-168-60-223.ap-southeast-1.compute.internal
+8m40s       Normal    Created                   pod/finsecure-pay-85896cc6d8-7tw4d                       Container created
+8m40s       Normal    Started                   pod/finsecure-pay-85896cc6d8-7tw4d                       Container started
+8m40s       Normal    SuccessfulCreate          replicaset/finsecure-pay-85896cc6d8                      Created pod: finsecure-pay-85896cc6d8-7tw4d
+8m18s       Warning   Unhealthy                 pod/finsecure-pay-85896cc6d8-7tw4d                       Readiness probe failed: Get "http://192.168.43.9:8080/actuator/health/readiness": dial tcp 192.168.43.9:8080: connect: connection refused
+8m7s        Warning   Unhealthy                 pod/finsecure-pay-85896cc6d8-7tw4d                       Readiness probe failed: Get "http://192.168.43.9:8080/actuator/health/readiness": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
