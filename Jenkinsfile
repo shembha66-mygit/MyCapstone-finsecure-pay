@@ -22,6 +22,13 @@ pipeline {
         archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
       }
     }
+    stage('Code Quality') {
+      steps {
+        withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+          sh 'mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=shembha66-mygit -Dsonar.projectKey=shembha66-mygit_MyCapstone-finsecure-pay -Dsonar.token=$SONAR_TOKEN'
+        }
+      }
+    }
     stage('Container Build') {
       steps { sh 'docker build -t $IMAGE:$TAG .' }
     }
