@@ -1,0 +1,6 @@
+b749f27 Revert "Demo: deliberately failing test to show the pipeline blocks the release"
+337dde0 Demo: deliberately failing test to show the pipeline blocks the release
+ea9c5c0 Task 4: Jenkinsfile (build, test, package, container build, push) and Jenkins image
+e2f738d Task 2 and 3: manifests, cluster config and evidence documents
+f60f211 Task 3: Kubernetes manifests, EKS cluster config and deployment evidence
+6476f7c Task 2: Dockerfile and containerisation evidence
