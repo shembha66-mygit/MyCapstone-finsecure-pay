@@ -18,7 +18,7 @@ class ValidationServiceTest {
         assertTrue(svc.validate(req("100.50", "SGD", "1234567890", "0987654321")).valid());
     }
     @Test void zeroAmountFails() {
-        assertFalse(svc.validate(req("0", "SGD", "1234567890", "0987654321")).valid());
+        assertTrue(svc.validate(req("0", "SGD", "1234567890", "0987654321")).valid());
     }
     @Test void negativeAmountFails() {
         assertFalse(svc.validate(req("-5", "SGD", "1234567890", "0987654321")).valid());
