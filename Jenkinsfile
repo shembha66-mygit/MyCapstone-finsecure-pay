@@ -29,8 +29,21 @@ pipeline {
         }
       }
     }
+    stage('Dependency Scan') {
+      steps {
+        withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_KEY')]) {
+          sh 'mvn -B org.owasp:dependency-check-maven:check -DfailBuildOnCVSS=7 -DnvdApiKey=$NVD_KEY -DdataDirectory=/var/jenkins_home/dependency-check-data'
+        }
+      }
+    }
     stage('Container Build') {
       steps { sh 'docker build -t $IMAGE:$TAG .' }
+    }
+    stage('Image Scan') {
+      steps {
+        sh 'trivy image --no-progress --ignore-unfixed --severity HIGH,CRITICAL --format table --output trivy-report.txt --exit-code 0 $IMAGE:$TAG'
+        sh 'trivy image --no-progress --ignore-unfixed --severity HIGH,CRITICAL --exit-code 1 $IMAGE:$TAG'
+      }
     }
     stage('Push') {
       steps {
@@ -42,6 +55,9 @@ pipeline {
     }
   }
   post {
-    always { sh 'docker logout || true' }
+    always {
+      archiveArtifacts artifacts: 'target/dependency-check-report.*, trivy-report.txt', allowEmptyArchive: true
+      sh 'docker logout || true'
+    }
   }
 }
