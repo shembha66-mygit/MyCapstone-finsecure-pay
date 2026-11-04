@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: finsecure-pay-alerts
+  labels:
+    app: finsecure-pay
+spec:
+  groups:
+    - name: finsecure-pay
+      rules:
+        - alert: FinSecurePayLowReplicas
+          expr: kube_deployment_status_replicas_available{namespace="default",deployment="finsecure-pay"} < 2
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "FinSecure Pay has fewer than 2 available replicas"
+            description: "Deployment finsecure-pay has {{ $value }} available replica(s); the target is 2."

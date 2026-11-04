@@ -70,5 +70,15 @@ pipeline {
       archiveArtifacts artifacts: 'target/dependency-check-report.*, trivy-report.txt', allowEmptyArchive: true
       sh 'docker logout || true'
     }
+    success {
+      emailext to: '$DEFAULT_RECIPIENTS',
+               subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+               body: "Build ${env.BUILD_NUMBER} passed all stages and was deployed as ${env.IMAGE}:${env.TAG}.\nDetails: ${env.BUILD_URL}"
+    }
+    failure {
+      emailext to: '$DEFAULT_RECIPIENTS',
+               subject: "FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+               body: "Build ${env.BUILD_NUMBER} failed. Check the console output: ${env.BUILD_URL}console"
+    }
   }
 }
