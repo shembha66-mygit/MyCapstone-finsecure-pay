@@ -53,6 +53,17 @@ pipeline {
         }
       }
     }
+    stage('Deploy') {
+      steps {
+        withCredentials([string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
+                         string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+          sh 'aws eks update-kubeconfig --name finsecure-eks --region ap-southeast-1'
+          sh 'kubectl set image deployment/finsecure-pay "*=$IMAGE:$TAG"'
+          sh 'kubectl rollout status deployment/finsecure-pay --timeout=180s'
+          sh 'kubectl get pods -o wide'
+        }
+      }
+    }
   }
   post {
     always {
